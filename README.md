@@ -111,7 +111,7 @@ def _generator():
             token_dict,
             token_list,
             seq_len=20,
-            mask_rate=0.3,
+            mask_rate=0.7,
             swap_sentence_rate=1.0,
         )
 
