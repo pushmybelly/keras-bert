@@ -2,6 +2,17 @@ import sys
 import numpy as np
 from keras_bert import load_vocabulary, load_trained_model_from_checkpoint, Tokenizer, get_checkpoint_paths
 
+def decompose():
+            while True:
+                yield gen_batch_inputs(
+                    sentence_pairs,
+                    token_dict,
+                    token_list,
+                    seq_len=20,
+                    mask_rate=0.3,
+                    swap_sentence_rate=1.0,
+                )
+
 print('This demo demonstrates how to load the pre-trained model and check whether the two sentences are continuous')
 
 if len(sys.argv) == 2:
