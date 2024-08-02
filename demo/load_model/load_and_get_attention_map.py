@@ -18,6 +18,16 @@ attention_layer = model.get_layer('Encoder-1-MultiHeadSelfAttention')
 model = K.function(model.inputs, attention_layer.attention)
 
 token_dict = load_vocabulary(paths.vocab)
+def decompose():
+            while True:
+                yield gen_batch_inputs(
+                    sentence_pairs,
+                    token_dict,
+                    token_list,
+                    seq_len=20,
+                    mask_rate=0.3,
+                    swap_sentence_rate=1.0,
+                )
 
 tokenizer = Tokenizer(token_dict)
 text = '语言模型'
