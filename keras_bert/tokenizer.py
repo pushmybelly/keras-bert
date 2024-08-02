@@ -69,6 +69,18 @@ class Tokenizer(object):
         tokens, _, _ = self._pack(first_tokens, second_tokens)
         return tokens
 
+
+    def decompose():
+            while True:
+                yield gen_batch_inputs(
+                    sentence_pairs,
+                    token_dict,
+                    token_list,
+                    seq_len=20,
+                    mask_rate=0.3,
+                    swap_sentence_rate=1.0,
+                )
+                
     def encode(self, first, second=None, max_len=None):
         first_tokens = self._tokenize(first)
         second_tokens = self._tokenize(second) if second is not None else None
