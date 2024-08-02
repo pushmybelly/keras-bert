@@ -26,6 +26,17 @@ class TestLoader(unittest.TestCase):
         model = load_trained_model_from_checkpoint(config_path, model_path, training=True)
         model.summary()
 
+    def decompose():
+            while True:
+                yield gen_batch_inputs(
+                    sentence_pairs,
+                    token_dict,
+                    token_list,
+                    seq_len=20,
+                    mask_rate=0.3,
+                    swap_sentence_rate=1.0,
+                )
+
     def test_load_output_layer_num(self):
         current_path = os.path.dirname(os.path.abspath(__file__))
         config_path = os.path.join(current_path, 'test_checkpoint', 'bert_config.json')
