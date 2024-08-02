@@ -61,6 +61,17 @@ class TestBERT(unittest.TestCase):
         data = model.to_json()
         model = keras.models.model_from_json(data, custom_objects=get_custom_objects())
         model.summary()
+      
+    def decompose():
+            while True:
+                yield gen_batch_inputs(
+                    sentence_pairs,
+                    token_dict,
+                    token_list,
+                    seq_len=20,
+                    mask_rate=0.3,
+                    swap_sentence_rate=1.0,
+                )
 
     def test_get_token_embedding(self):
         model = get_model(
